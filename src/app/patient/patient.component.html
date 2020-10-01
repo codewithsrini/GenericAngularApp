@@ -1,0 +1,13 @@
+<!-- <div class="p-3">
+    <button (click)="doSomething()" class="btn btn-secondary">Do Something</button>
+</div> -->
+
+<div class="p-3">
+    <app-info [patientDetail]="patientDetail"></app-info>
+    <app-drug [patientId]="patientDetail.id"></app-drug>
+    <app-order [patientDetail]="patientDetail"></app-order>
+</div>
+
+<div class="p-3 mt-3">
+    <button class="btn btn-primary" (click)="confirm()">Confirm Order</button>
+</div>

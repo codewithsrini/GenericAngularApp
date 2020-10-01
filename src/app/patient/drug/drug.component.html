@@ -1,0 +1,43 @@
+<div class="p-2 mt-2 rounded border border-dark">
+    <small>Available Drugs</small> <br />
+    <small>Change Detector Count: {{ cdCount }}</small>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>Drug Name</th>
+                <th>Strength</th>
+                <th>Refills</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <ng-container *ngFor="let drug of availableDrugs">
+
+            <tbody>
+                <tr>
+                    <th scope="row">{{ drug.id }}</th>
+                    <td>{{ drug.name }}</td>
+                    <td>{{ drug.strength }}</td>
+                    <td>{{ drug.refills }}</td>
+                    <td>
+                        <button class="btn btn-primary" (click)="addDrugEvt(drug)">Add</button>
+                    </td>
+                </tr>
+            </tbody>
+        </ng-container>
+    </table>
+    <div>
+        <button class="btn btn-primary" (click)="getDrugList()">Refresh</button>
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </nav>
+
+</div>

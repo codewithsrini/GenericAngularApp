@@ -1,0 +1,47 @@
+<div class="p-2 mt-2 rounded border border-dark">
+    <small>Final Order</small> <br />
+    <small>Change Detector Count: {{ cdCount }}</small>
+    <ng-container *ngIf="patientDetail?.orderedDrugs; else noOrderedDrugs">
+
+        <div>
+
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Drug Name</th>
+                        <th>Strength</th>
+                        <th>Refills</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <ng-container *ngFor="let drug of patientDetail?.orderedDrugs; let i = index;">
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{drug.id }}</th>
+                            <td>{{ drug.name }}</td>
+                            <td>{{ drug.strength }}</td>
+                            <td>{{ drug.refills }}</td>
+                            <td>
+                                <button class="btn btn-secondary" (click)="modifyDrug(drug)">Modify</button>
+                            </td>
+                        </tr>
+                        <tr *ngIf="drug.comment">
+                            <td colspan="5">
+                                <small>{{ drug.comment }}</small>
+                            </td>
+                        </tr>
+                    </tbody>
+                </ng-container>
+            </table>
+        </div>
+
+    </ng-container>
+
+    <ng-template #noOrderedDrugs>
+        <div>
+            <h3>Add drugs from the available set</h3>
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,13 @@
+<div class="p-1 border-info">
+
+    <p>
+        {{ data | json }}
+    </p>
+
+    <p>{{ subData | json }}</p>
+    <app-a1></app-a1>
+
+    <div class="p-2">
+        <button class="btn btn-primary" (click)="changeData()">Change A Data</button>
+    </div>
+</div>
